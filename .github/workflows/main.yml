@@ -17,13 +17,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
-      # Set up Python (ensure this step is present to install Python)
+      # Set up Python
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.x'  # Replace '3.x' with the Python version you need
+          python-version: '3.x'
 
-      # Install dependencies including pytest and pylint
+      # Install dependencies
       - name: Install dependencies
         run: |
           pip install pytest
@@ -33,14 +33,14 @@ jobs:
       - name: Run Echo
         run: echo "Hello, world!"
 
-      # Step to run tests using pytest
+      # Run tests (make sure tests exist in the correct directory)
       - name: Run Tests
-        run: pytest .
+        run: pytest  # Or specify the test directory if needed (e.g., 'pytest tests/')
 
-      # Step to lint code using pylint
+      # Lint code
       - name: Lint Code
         run: pylint src/  # Replace 'src/' with your code directory
 
-      # Build project using Docker (if you have a Dockerfile)
+      # Build project
       - name: Build Project
         run: docker build .
