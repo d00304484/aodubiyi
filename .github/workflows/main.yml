@@ -35,7 +35,7 @@ jobs:
 
       # Run tests (make sure tests exist in the correct directory)
       - name: Run Test
-        run: pytest  # Or specify the test directory if needed (e.g., 'pytest tests/')
+        run: pytest test/ # Or specify the test directory if needed (e.g., 'pytest tests/')
 
       # Lint code
       - name: Lint Code
