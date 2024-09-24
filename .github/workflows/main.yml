@@ -1,9 +1,14 @@
-name: Hello World
+name: Hello World Workflow
 
 on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
+  schedule:
+    - cron: '0 0 * * *'  # Runs daily at midnight
 
 jobs:
   hello:
@@ -11,5 +16,16 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
       - name: Run Echo
         run: echo "Hello, world!"
+
+      - name: Run Tests
+        run: pytest .
+
+      - name: Lint Code
+        run: pylint workflows
+
+      - name: Build Project
+        run: docker build .
+
