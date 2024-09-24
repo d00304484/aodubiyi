@@ -34,7 +34,7 @@ jobs:
         run: echo "Hello, world!"
 
       # Run tests (make sure tests exist in the correct directory)
-      - name: Run Tests
+      - name: Run Test
         run: pytest  # Or specify the test directory if needed (e.g., 'pytest tests/')
 
       # Lint code
